@@ -71,4 +71,4 @@ Worked on:
 ---
 
 # ✅ Overall Progress
-Completed SQL practice questions from Q1 to Q55 successfully.
+Completed SQL practice questions from Q1 to Q65 successfully.
