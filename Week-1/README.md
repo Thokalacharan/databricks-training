@@ -11,10 +11,10 @@ Week 1
 
 ---
 
-# ✅ Day 1 Progress
+## ✅ Day 1 Progress
 Completed SQL practice questions from Q1 to Q15.
 
-## 🧠 Topics Covered in Day 1
+### 🧠 Topics Covered in Day 1
 - SELECT Queries
 - WHERE Clause
 - LIKE Operator
@@ -25,10 +25,10 @@ Completed SQL practice questions from Q1 to Q15.
 
 ---
 
-# ✅ Day 2 Progress
+## ✅ Day 2 Progress
 Completed SQL practice questions from Q16 to Q65.
 
-## 🧠 Topics Covered in Day 2
+### 🧠 Topics Covered in Day 2
 - Aggregate Functions
 - GROUP BY
 - HAVING
@@ -40,35 +40,38 @@ Completed SQL practice questions from Q16 to Q65.
 
 ---
 
-# 🛠 Platform Used
+## ✅ Day 3 Progress
+Completed SQL Joins Assignment.
+
+### 🧠 Topics Covered in Day 3
+- LEFT JOIN
+- RIGHT JOIN
+- FULL OUTER JOIN
+- INNER JOIN
+- CROSS JOIN
+- NULL Handling
+- Unmatched Rows
+- Multi-table Joins
+
+---
+
+## 🛠 Platform Used
 DB-Fiddle (MySQL 5.7)
 
 ---
 
-# 📂 Folder Structure
+## 📂 Folder Structure
 
+```text
 Week-1/
 ├── day-1/
-│   └── queries.sql
+│   ├── queries.sql
+│   
 │
-└── day-2/
-    └── queries.sql
-
----
-
-# 🚀 Description
-Practiced SQL queries using Employee, Department, and Project tables.
-
-Worked on:
-- Basic SQL Queries
-- Filtering and Pattern Matching
-- Aggregate Functions
-- Grouping and Sorting
-- Joins
-- Nested Queries
-- Correlated Queries
-
----
-
-# ✅ Overall Progress
-Completed SQL practice questions from Q1 to Q65 successfully.
+├── day-2/
+│   ├── queries.sql
+│   
+│
+└── day-3/
+    ├── joins_queries.sql
+    └── README.md
