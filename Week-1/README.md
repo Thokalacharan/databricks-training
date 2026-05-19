@@ -85,6 +85,30 @@ Completed SQL CTE and Recursive Queries Assignment (Q21 to Q30).
 
 ---
 
+## ✅ Day 6 Progress
+Completed Advanced SQL Queries Assignment (Q1 to Q50). :contentReference[oaicite:0]{index=0}
+
+### 🧠 Topics Covered in Day 6
+- Advanced JOIN Queries
+- LEFT JOIN
+- Aggregate Functions
+- GROUP BY and HAVING
+- Subqueries
+- Window Functions
+- ROW_NUMBER()
+- RANK()
+- DENSE_RANK()
+- LAG() and LEAD()
+- Running Totals
+- NTILE()
+- Common Table Expressions (CTEs)
+- Recursive Queries
+- Ranking and Analytics
+- Department-wise Analysis
+- Student Performance Reports
+
+---
+
 ## 🛠 Platform Used
 DB-Fiddle (MySQL 5.7)
 
@@ -110,6 +134,10 @@ Week-1/
 │   ├── analytical_functions.sql
 │   └── README.md
 │
-└── day-5/
-    ├── cte_queries.sql
+├── day-5/
+│   ├── cte_queries.sql
+│   └── README.md
+│
+└── day-6/
+    ├── advanced_sql_queries.sql
     └── README.md
