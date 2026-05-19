@@ -93,26 +93,4 @@ DB-Fiddle (MySQL 5.7)
 
 ---
 
-## 📂 Folder Structure
 
-```text
-Week-1/
-├── day-1/
-│   ├── queries.sql
-│   └── README.md
-│
-├── day-2/
-│   ├── queries.sql
-│   └── README.md
-│
-├── day-3/
-│   ├── window_functions.sql
-│   └── README.md
-│
-├── day-4/
-│   ├── analytical_functions.sql
-│   └── README.md
-│
-└── day-5/
-    ├── cte_queries.sql
-    └── README.md
