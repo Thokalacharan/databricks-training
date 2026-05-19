@@ -1,6 +1,3 @@
-# databricks-training
-
-
 # Week 1 - SQL Practice
 
 ## 📚 Course
@@ -88,9 +85,70 @@ Completed SQL CTE and Recursive Queries Assignment (Q21 to Q30).
 
 ---
 
+## ✅ Day 6 Progress
+Completed Advanced SQL Queries Assignment (Q1 to Q50). :contentReference[oaicite:0]{index=0}
+
+### 🧠 Topics Covered in Day 6
+- Advanced JOIN Queries
+- LEFT JOIN
+- Aggregate Functions
+- GROUP BY and HAVING
+- Subqueries
+- Window Functions
+- ROW_NUMBER()
+- RANK()
+- DENSE_RANK()
+- LAG() and LEAD()
+- Running Totals
+- NTILE()
+- Common Table Expressions (CTEs)
+- Recursive Queries
+- Ranking and Analytics
+- Department-wise Analysis
+- Student Performance Reports
+
+---
+
 ## 🛠 Platform Used
 DB-Fiddle (MySQL 5.7)
 
 ---
 
+## 📂 Folder Structure
 
+```text
+Week-1/
+├── day-1/
+│   ├── queries.sql
+│   └── README.md
+│
+├── day-2/
+│   ├── queries.sql
+│   └── README.md
+│
+├── day-3/
+│   ├── window_functions.sql
+│   └── README.md
+│
+├── day-4/
+│   ├── analytical_functions.sql
+│   └── README.md
+│
+├── day-5/
+│   ├── cte_queries.sql
+│   └── README.md
+│
+└── day-6/
+    ├── advanced_sql_queries.sql
+    └── README.md
+
+
+
+Week 2
+
+  => Mastered String Functions (UPPER, LOWER, CONCAT, SUBSTRING, REPLACE, TRIM, INSTR, REVERSE)
+  => Learnt Date Manipulation (CURRENT_DATE, YEAR, MONTH, DAY, DATE_ADD, DATE_SUB, DATEDIFF, DATE_FORMAT)
+  => Practiced Number Manipulation (ROUND, CEIL, FLOOR, ABS, MOD, POWER, SQRT, LOG, SIGN, GREATEST, LEAST)
+  => Completed StrDataNum Assignment - Combined String, Date, and Number Functions
+  => Mastered Null Functions (COALESCE, IFNULL, NULLIF, IS NULL, CASE WHEN)
+  => Learnt REGEX Patterns and Completed Data Validation Assignment
