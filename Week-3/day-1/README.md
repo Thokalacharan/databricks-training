@@ -16,7 +16,7 @@ Learn how to read CSV files and display data using PySpark in Databricks.
 
 ### Reading Big Sales CSV File
 
-```python
+python
 df = spark.read.csv("/Volumes/workspace/default/day1files/Big Sales.csv", header=True)
 
 df.show()
@@ -24,4 +24,15 @@ df.show()
 df2 = spark.read.csv("/Volumes/workspace/default/day1files/empData.csv", header=True)
 
 df2.show()
+
+Concepts Learned
+Databricks Workspace
+Volume Creation
+Uploading CSV Files
+Reading CSV using PySpark
+DataFrame
+show() function
+Output
+
+Successfully displayed CSV data using PySpark in Databricks.
 
