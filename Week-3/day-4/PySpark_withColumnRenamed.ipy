@@ -1,0 +1,688 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+from pyspark.sql.functions import col
+
+df.select(
+    col("emp_name").alias("employee_name")
+).show()
+
+# Sample Data
+
+data = [
+    (1, "Sravan", 25, "Hyderabad", "Data Engineer", 55000, "2023-01-15", "IT"),
+    (2, "Ravi", 28, "Bangalore", "Software Engineer", 72000, "2022-11-10", "IT"),
+    (3, "Priya", 24, "Chennai", "Analyst", 48000, "2023-03-12", "Analytics"),
+    (4, "Kiran", 30, "Pune", "Manager", 85000, "2021-09-20", "Management"),
+    (5, "Sneha", 27, "Mumbai", "HR", 45000, "2020-05-18", "HR")
+]
+
+# Column Names
+
+columns = [
+    "emp_id",
+    "emp_name",
+    "age",
+    "city",
+    "designation",
+    "salary",
+    "joining_date",
+    "department"
+]
+
+# Create DataFrame
+
+df = spark.createDataFrame(data, columns)
+
+# Display Data
+
+df.show()
+     
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+File <command-5439728212739480>, line 6
+      3 from pyspark.sql.types import *
+      4 from pyspark.sql.functions import col
+----> 6 df.select(
+      7     col("emp_name").alias("employee_name")
+      8 ).show()
+     10 # Sample Data
+     12 data = [
+     13     (1, "Sravan", 25, "Hyderabad", "Data Engineer", 55000, "2023-01-15", "IT"),
+     14     (2, "Ravi", 28, "Bangalore", "Software Engineer", 72000, "2022-11-10", "IT"),
+   (...)
+     17     (5, "Sneha", 27, "Mumbai", "HR", 45000, "2020-05-18", "HR")
+     18 ]
+
+AttributeError: 'NoneType' object has no attribute 'select'
+
+from pyspark.sql.functions import *
+df.select("emp_name", "salary").show()
+     
++--------+------+
+|emp_name|salary|
++--------+------+
+|  Sravan| 55000|
+|    Ravi| 72000|
+|   Priya| 48000|
+|   Kiran| 85000|
+|   Sneha| 45000|
++--------+------+
+
+
+df.select("emp_id", "emp_name","department").show()
+     
++------+--------+----------+
+|emp_id|emp_name|department|
++------+--------+----------+
+|     1|  Sravan|        IT|
+|     2|    Ravi|        IT|
+|     3|   Priya| Analytics|
+|     4|   Kiran|Management|
+|     5|   Sneha|        HR|
++------+--------+----------+
+
+
+df.select("city","designation","salary").show()
+     
++---------+-----------------+------+
+|     city|      designation|salary|
++---------+-----------------+------+
+|Hyderabad|    Data Engineer| 55000|
+|Bangalore|Software Engineer| 72000|
+|  Chennai|          Analyst| 48000|
+|     Pune|          Manager| 85000|
+|   Mumbai|               HR| 45000|
++---------+-----------------+------+
+
+
+df.filter(df.department == "IT") \
+  .select("emp_name", "salary", "city") \
+  .show()
+     
++--------+------+---------+
+|emp_name|salary|     city|
++--------+------+---------+
+|  Sravan| 55000|Hyderabad|
+|    Ravi| 72000|Bangalore|
++--------+------+---------+
+
+
+df.select("emp_name","salary","joining_date").show()
+     
++--------+------+------------+
+|emp_name|salary|joining_date|
++--------+------+------------+
+|  Sravan| 55000|  2023-01-15|
+|    Ravi| 72000|  2022-11-10|
+|   Priya| 48000|  2023-03-12|
+|   Kiran| 85000|  2021-09-20|
+|   Sneha| 45000|  2020-05-18|
++--------+------+------------+
+
+
+df.show()
+     
++------+--------+---+---------+-----------------+------+------------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|joining_date|department|
++------+--------+---+---------+-----------------+------+------------+----------+
+|     1|  Sravan| 25|Hyderabad|    Data Engineer| 55000|  2023-01-15|        IT|
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
+|     3|   Priya| 24|  Chennai|          Analyst| 48000|  2023-03-12| Analytics|
+|     4|   Kiran| 30|     Pune|          Manager| 85000|  2021-09-20|Management|
+|     5|   Sneha| 27|   Mumbai|               HR| 45000|  2020-05-18|        HR|
++------+--------+---+---------+-----------------+------+------------+----------+
+
+
+df.select("salary").show()
+     
++------+
+|salary|
++------+
+| 55000|
+| 72000|
+| 48000|
+| 85000|
+| 45000|
++------+
+
+
+df.filter(df.city == "Hyderabad") \
+  .select("emp_name", "city") \
+  .show()
+     
++--------+---------+
+|emp_name|     city|
++--------+---------+
+|  Sravan|Hyderabad|
++--------+---------+
+
+
+df.select("designation","department").show()
+     
++-----------------+----------+
+|      designation|department|
++-----------------+----------+
+|    Data Engineer|        IT|
+|Software Engineer|        IT|
+|          Analyst| Analytics|
+|          Manager|Management|
+|               HR|        HR|
++-----------------+----------+
+
+
+df.drop("joining_date").show()
+
+     
++------+--------+---+---------+-----------------+------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|department|
++------+--------+---+---------+-----------------+------+----------+
+|     1|  Sravan| 25|Hyderabad|    Data Engineer| 55000|        IT|
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|        IT|
+|     3|   Priya| 24|  Chennai|          Analyst| 48000| Analytics|
+|     4|   Kiran| 30|     Pune|          Manager| 85000|Management|
+|     5|   Sneha| 27|   Mumbai|               HR| 45000|        HR|
++------+--------+---+---------+-----------------+------+----------+
+
+
+df.select(
+    col("emp_name").alias("employeee_name")
+).show()
+     
++--------------+
+|employeee_name|
++--------------+
+|        Sravan|
+|          Ravi|
+|         Priya|
+|         Kiran|
+|         Sneha|
++--------------+
+
+
+df.select(col("salary").alias("monthly_salary")).show()
+     
++--------------+
+|monthly_salary|
++--------------+
+|         55000|
+|         72000|
+|         48000|
+|         85000|
+|         45000|
++--------------+
+
+
+df.select(col("department").alias("dept")).show()
+     
++----------+
+|      dept|
++----------+
+|        IT|
+|        IT|
+| Analytics|
+|Management|
+|        HR|
++----------+
+
+
+df.select(col("joining_date").alias("doj")).show()
+     
++----------+
+|       doj|
++----------+
+|2023-01-15|
+|2022-11-10|
+|2023-03-12|
+|2021-09-20|
+|2020-05-18|
++----------+
+
+
+df.select(
+    col("emp_name").alias("name"),
+    col("city").alias("location")
+).show()
+     
++------+---------+
+|  name| location|
++------+---------+
+|Sravan|Hyderabad|
+|  Ravi|Bangalore|
+| Priya|  Chennai|
+| Kiran|     Pune|
+| Sneha|   Mumbai|
++------+---------+
+
+
+df.select(col("designation").alias("job_role")).show()
+     
++-----------------+
+|         job_role|
++-----------------+
+|    Data Engineer|
+|Software Engineer|
+|          Analyst|
+|          Manager|
+|               HR|
++-----------------+
+
+
+df.select(col("age").alias("employee_age")).show()
+     
++------------+
+|employee_age|
++------------+
+|          25|
+|          28|
+|          24|
+|          30|
+|          27|
++------------+
+
+
+df.select(
+    col("emp_id").alias("employee_id"),
+    col("emp_name").alias("employee_name"),
+    col("salary").alias("monthly_salary"),
+    col("department").alias("dept")
+).show()
+     
++-----------+-------------+--------------+----------+
+|employee_id|employee_name|monthly_salary|      dept|
++-----------+-------------+--------------+----------+
+|          1|       Sravan|         55000|        IT|
+|          2|         Ravi|         72000|        IT|
+|          3|        Priya|         48000| Analytics|
+|          4|        Kiran|         85000|Management|
+|          5|        Sneha|         45000|        HR|
++-----------+-------------+--------------+----------+
+
+
+df.select(
+    col("salary").alias("emp_salary"),
+    col("department").alias("emp_dept")
+).show()
+     
++----------+----------+
+|emp_salary|  emp_dept|
++----------+----------+
+|     55000|        IT|
+|     72000|        IT|
+|     48000| Analytics|
+|     85000|Management|
+|     45000|        HR|
++----------+----------+
+
+
+df.select(
+    col("city").alias("work_location")
+).show()
+     
++-------------+
+|work_location|
++-------------+
+|    Hyderabad|
+|    Bangalore|
+|      Chennai|
+|         Pune|
+|       Mumbai|
++-------------+
+
+
+df.filter(df.salary > 70000).show()
+     
++------+--------+---+---------+-----------------+------+------------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|joining_date|department|
++------+--------+---+---------+-----------------+------+------------+----------+
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
+|     4|   Kiran| 30|     Pune|          Manager| 85000|  2021-09-20|Management|
++------+--------+---+---------+-----------------+------+------------+----------+
+
+
+df.filter(df.city == "Hyderabad").show()
+     
++------+--------+---+---------+-------------+------+------------+----------+
+|emp_id|emp_name|age|     city|  designation|salary|joining_date|department|
++------+--------+---+---------+-------------+------+------------+----------+
+|     1|  Sravan| 25|Hyderabad|Data Engineer| 55000|  2023-01-15|        IT|
++------+--------+---+---------+-------------+------+------------+----------+
+
+
+df.filter(df.age < 25).show()
+     
++------+--------+---+-------+-----------+------+------------+----------+
+|emp_id|emp_name|age|   city|designation|salary|joining_date|department|
++------+--------+---+-------+-----------+------+------------+----------+
+|     3|   Priya| 24|Chennai|    Analyst| 48000|  2023-03-12| Analytics|
++------+--------+---+-------+-----------+------+------------+----------+
+
+
+df.filter(df.department == "IT").show()
+     
++------+--------+---+---------+-----------------+------+------------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|joining_date|department|
++------+--------+---+---------+-----------------+------+------------+----------+
+|     1|  Sravan| 25|Hyderabad|    Data Engineer| 55000|  2023-01-15|        IT|
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
++------+--------+---+---------+-----------------+------+------------+----------+
+
+
+df.filter(df.designation == "Developer").show()
+     
++------+--------+---+----+-----------+------+------------+----------+
+|emp_id|emp_name|age|city|designation|salary|joining_date|department|
++------+--------+---+----+-----------+------+------------+----------+
++------+--------+---+----+-----------+------+------------+----------+
+
+
+df.filter(df.salary.between(50000, 70000)).show()
+     
++------+--------+---+---------+-------------+------+------------+----------+
+|emp_id|emp_name|age|     city|  designation|salary|joining_date|department|
++------+--------+---+---------+-------------+------+------------+----------+
+|     1|  Sravan| 25|Hyderabad|Data Engineer| 55000|  2023-01-15|        IT|
++------+--------+---+---------+-------------+------+------------+----------+
+
+
+df.filter(df.city == "Bangalore").show()
+     
++------+--------+---+---------+-----------------+------+------------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|joining_date|department|
++------+--------+---+---------+-----------------+------+------------+----------+
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
++------+--------+---+---------+-----------------+------+------------+----------+
+
+
+df.filter(df.joining_date > "2022-01-01").show()
+     
++------+--------+---+---------+-----------------+------+------------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|joining_date|department|
++------+--------+---+---------+-----------------+------+------------+----------+
+|     1|  Sravan| 25|Hyderabad|    Data Engineer| 55000|  2023-01-15|        IT|
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
+|     3|   Priya| 24|  Chennai|          Analyst| 48000|  2023-03-12| Analytics|
++------+--------+---+---------+-----------------+------+------------+----------+
+
+
+df.filter(df.age > 30).show()
+     
++------+--------+---+----+-----------+------+------------+----------+
+|emp_id|emp_name|age|city|designation|salary|joining_date|department|
++------+--------+---+----+-----------+------+------------+----------+
++------+--------+---+----+-----------+------+------------+----------+
+
+
+df.filter(df.salary < 50000).show()
+
+     
++------+--------+---+-------+-----------+------+------------+----------+
+|emp_id|emp_name|age|   city|designation|salary|joining_date|department|
++------+--------+---+-------+-----------+------+------------+----------+
+|     3|   Priya| 24|Chennai|    Analyst| 48000|  2023-03-12| Analytics|
+|     5|   Sneha| 27| Mumbai|         HR| 45000|  2020-05-18|        HR|
++------+--------+---+-------+-----------+------+------------+----------+
+
+
+df.filter(
+    (df.city == "Chennai") & (df.salary > 60000)
+).show()
+     
++------+--------+---+----+-----------+------+------------+----------+
+|emp_id|emp_name|age|city|designation|salary|joining_date|department|
++------+--------+---+----+-----------+------+------------+----------+
++------+--------+---+----+-----------+------+------------+----------+
+
+
+df.filter(
+    (df.city == "Mumbai") | (df.city == "Pune")
+).show()
+     
++------+--------+---+------+-----------+------+------------+----------+
+|emp_id|emp_name|age|  city|designation|salary|joining_date|department|
++------+--------+---+------+-----------+------+------------+----------+
+|     4|   Kiran| 30|  Pune|    Manager| 85000|  2021-09-20|Management|
+|     5|   Sneha| 27|Mumbai|         HR| 45000|  2020-05-18|        HR|
++------+--------+---+------+-----------+------+------------+----------+
+
+
+df.filter(df.emp_name.startswith("S")).show()
+     
++------+--------+---+---------+-------------+------+------------+----------+
+|emp_id|emp_name|age|     city|  designation|salary|joining_date|department|
++------+--------+---+---------+-------------+------+------------+----------+
+|     1|  Sravan| 25|Hyderabad|Data Engineer| 55000|  2023-01-15|        IT|
+|     5|   Sneha| 27|   Mumbai|           HR| 45000|  2020-05-18|        HR|
++------+--------+---+---------+-------------+------+------------+----------+
+
+
+df.filter(df.emp_name.endswith("a")).show()
+     
++------+--------+---+-------+-----------+------+------------+----------+
+|emp_id|emp_name|age|   city|designation|salary|joining_date|department|
++------+--------+---+-------+-----------+------+------------+----------+
+|     3|   Priya| 24|Chennai|    Analyst| 48000|  2023-03-12| Analytics|
+|     5|   Sneha| 27| Mumbai|         HR| 45000|  2020-05-18|        HR|
++------+--------+---+-------+-----------+------+------------+----------+
+
+
+df.filter(df.department == "HR").show()
+     
++------+--------+---+------+-----------+------+------------+----------+
+|emp_id|emp_name|age|  city|designation|salary|joining_date|department|
++------+--------+---+------+-----------+------+------------+----------+
+|     5|   Sneha| 27|Mumbai|         HR| 45000|  2020-05-18|        HR|
++------+--------+---+------+-----------+------+------------+----------+
+
+
+df.filter(df.designation.contains("Engineer")).show()
+     
++------+--------+---+---------+-----------------+------+------------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|joining_date|department|
++------+--------+---+---------+-----------------+------+------------+----------+
+|     1|  Sravan| 25|Hyderabad|    Data Engineer| 55000|  2023-01-15|        IT|
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
++------+--------+---+---------+-----------------+------+------------+----------+
+
+
+df.filter(df.city != "Hyderabad").show()
+     
++------+--------+---+---------+-----------------+------+------------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|joining_date|department|
++------+--------+---+---------+-----------------+------+------------+----------+
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
+|     3|   Priya| 24|  Chennai|          Analyst| 48000|  2023-03-12| Analytics|
+|     4|   Kiran| 30|     Pune|          Manager| 85000|  2021-09-20|Management|
+|     5|   Sneha| 27|   Mumbai|               HR| 45000|  2020-05-18|        HR|
++------+--------+---+---------+-----------------+------+------------+----------+
+
+
+df.filter(df.age.between(25, 30)).show()
+     
++------+--------+---+---------+-----------------+------+------------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|joining_date|department|
++------+--------+---+---------+-----------------+------+------------+----------+
+|     1|  Sravan| 25|Hyderabad|    Data Engineer| 55000|  2023-01-15|        IT|
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
+|     4|   Kiran| 30|     Pune|          Manager| 85000|  2021-09-20|Management|
+|     5|   Sneha| 27|   Mumbai|               HR| 45000|  2020-05-18|        HR|
++------+--------+---+---------+-----------------+------+------------+----------+
+
+
+df.filter(df.salary > 90000).show()
+     
++------+--------+---+----+-----------+------+------------+----------+
+|emp_id|emp_name|age|city|designation|salary|joining_date|department|
++------+--------+---+----+-----------+------+------------+----------+
++------+--------+---+----+-----------+------+------------+----------+
+
+
+df.filter(df.department == "Support").show()
+     
++------+--------+---+----+-----------+------+------------+----------+
+|emp_id|emp_name|age|city|designation|salary|joining_date|department|
++------+--------+---+----+-----------+------+------------+----------+
++------+--------+---+----+-----------+------+------------+----------+
+
+
+df = df.withColumnRenamed("emp_name", "employee_name")
+
+df.show()
+     
++------+-------------+---+---------+-----------------+------+------------+----------+
+|emp_id|employee_name|age|     city|      designation|salary|joining_date|department|
++------+-------------+---+---------+-----------------+------+------------+----------+
+|     1|       Sravan| 25|Hyderabad|    Data Engineer| 55000|  2023-01-15|        IT|
+|     2|         Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
+|     3|        Priya| 24|  Chennai|          Analyst| 48000|  2023-03-12| Analytics|
+|     4|        Kiran| 30|     Pune|          Manager| 85000|  2021-09-20|Management|
+|     5|        Sneha| 27|   Mumbai|               HR| 45000|  2020-05-18|        HR|
++------+-------------+---+---------+-----------------+------+------------+----------+
+
+
+df = df.withColumnRenamed("department","dept").show()
+     
++------+-------------+---+---------+-----------------+------+------------+----------+
+|emp_id|employee_name|age|     city|      designation|salary|joining_date|      dept|
++------+-------------+---+---------+-----------------+------+------------+----------+
+|     1|       Sravan| 25|Hyderabad|    Data Engineer| 55000|  2023-01-15|        IT|
+|     2|         Ravi| 28|Bangalore|Software Engineer| 72000|  2022-11-10|        IT|
+|     3|        Priya| 24|  Chennai|          Analyst| 48000|  2023-03-12| Analytics|
+|     4|        Kiran| 30|     Pune|          Manager| 85000|  2021-09-20|Management|
+|     5|        Sneha| 27|   Mumbai|               HR| 45000|  2020-05-18|        HR|
++------+-------------+---+---------+-----------------+------+------------+----------+
+
+
+df.select(
+    col("joining_date").alias("doj")
+).show()
+     
++----------+
+|       doj|
++----------+
+|2023-01-15|
+|2022-11-10|
+|2023-03-12|
+|2021-09-20|
+|2020-05-18|
++----------+
+
+
+df.select(
+    col("joining_date").alias("doj")
+).show()
+     
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+File <command-5626315019094233>, line 1
+----> 1 df.select(
+      2     col("joining_date").alias("doj")
+      3 ).show()
+
+AttributeError: 'NoneType' object has no attribute 'select'
+
+df = df.withColumnRenamed("designation","job_role")
+df.show()
+     
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+File <command-5626315019094235>, line 1
+----> 1 df = df.withColumnRenamed("designation","job_role")
+      2 df.show()
+
+AttributeError: 'NoneType' object has no attribute 'withColumnRenamed'
+
+
+     
+
+
+     
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+
+spark = SparkSession.builder.getOrCreate()
+
+data = [
+    (1, "Sravan", 25, "Hyderabad", "Data Engineer", 55000, "2023-01-15", "IT"),
+    (2, "Ravi", 28, "Bangalore", "Software Engineer", 72000, "2022-11-10", "IT"),
+    (3, "Priya", 24, "Chennai", "Analyst", 48000, "2023-03-12", "Analytics"),
+    (4, "Kiran", 30, "Pune", "Manager", 85000, "2021-09-20", "Management"),
+    (5, "Sneha", 27, "Mumbai", "HR", 45000, "2020-05-18", "HR")
+]
+
+columns = [
+    "emp_id",
+    "emp_name",
+    "age",
+    "city",
+    "designation",
+    "salary",
+    "joining_date",
+    "department"
+]
+
+df = spark.createDataFrame(data, columns)
+
+# df = df.withColumnRenamed("joining_date", "doj")
+
+df.show()
+     
++------+--------+---+---------+-----------------+------+----------+----------+
+|emp_id|emp_name|age|     city|      designation|salary|       doj|department|
++------+--------+---+---------+-----------------+------+----------+----------+
+|     1|  Sravan| 25|Hyderabad|    Data Engineer| 55000|2023-01-15|        IT|
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|2022-11-10|        IT|
+|     3|   Priya| 24|  Chennai|          Analyst| 48000|2023-03-12| Analytics|
+|     4|   Kiran| 30|     Pune|          Manager| 85000|2021-09-20|Management|
+|     5|   Sneha| 27|   Mumbai|               HR| 45000|2020-05-18|        HR|
++------+--------+---+---------+-----------------+------+----------+----------+
+
+
+df = df.withColumnRenamed("city", "location")
+df.show()
+
+     
++------+--------+---+---------+-----------------+------+----------+----------+
+|emp_id|emp_name|age| location|      designation|salary|       doj|department|
++------+--------+---+---------+-----------------+------+----------+----------+
+|     1|  Sravan| 25|Hyderabad|    Data Engineer| 55000|2023-01-15|        IT|
+|     2|    Ravi| 28|Bangalore|Software Engineer| 72000|2022-11-10|        IT|
+|     3|   Priya| 24|  Chennai|          Analyst| 48000|2023-03-12| Analytics|
+|     4|   Kiran| 30|     Pune|          Manager| 85000|2021-09-20|Management|
+|     5|   Sneha| 27|   Mumbai|               HR| 45000|2020-05-18|        HR|
++------+--------+---+---------+-----------------+------+----------+----------+
+
+
+df = df.withColumnRenamed("age", "employee_age")
+df.show()
+     
++------+--------+------------+---------+-----------------+------+----------+----------+
+|emp_id|emp_name|employee_age| location|      designation|salary|       doj|department|
++------+--------+------------+---------+-----------------+------+----------+----------+
+|     1|  Sravan|          25|Hyderabad|    Data Engineer| 55000|2023-01-15|        IT|
+|     2|    Ravi|          28|Bangalore|Software Engineer| 72000|2022-11-10|        IT|
+|     3|   Priya|          24|  Chennai|          Analyst| 48000|2023-03-12| Analytics|
+|     4|   Kiran|          30|     Pune|          Manager| 85000|2021-09-20|Management|
+|     5|   Sneha|          27|   Mumbai|               HR| 45000|2020-05-18|        HR|
++------+--------+------------+---------+-----------------+------+----------+----------+
+
+
+df = df.withColumnRenamed("emp_name", "employee_name")
+
+df = df.withColumnRenamed("joining_date", "doj")
+
+df = df.withColumnRenamed("designation", "job_role")
+
+df.show()
+     
++------+-------------+------------+---------+-----------------+------+----------+----------+
+|emp_id|employee_name|employee_age| location|         job_role|salary|       doj|department|
++------+-------------+------------+---------+-----------------+------+----------+----------+
+|     1|       Sravan|          25|Hyderabad|    Data Engineer| 55000|2023-01-15|        IT|
+|     2|         Ravi|          28|Bangalore|Software Engineer| 72000|2022-11-10|        IT|
+|     3|        Priya|          24|  Chennai|          Analyst| 48000|2023-03-12| Analytics|
+|     4|        Kiran|          30|     Pune|          Manager| 85000|2021-09-20|Management|
+|     5|        Sneha|          27|   Mumbai|               HR| 45000|2020-05-18|        HR|
++------+-------------+------------+---------+-----------------+------+----------+----------+
+
