@@ -1,154 +1,300 @@
-# Week 1 - SQL Practice
+# 🚀 Databricks Data Engineering Training
 
-## 📚 Course
-Databricks SQL Training
+**PySpark • Spark SQL • Databricks • SQL • DataFrame API • Window Functions • ETL • Business Analytics**
 
-## 👨‍💻 Student
-Thokala Charan
-
-## 📅 Week
-Week 1
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![PySpark](https://img.shields.io/badge/PySpark-Apache%20Spark-orange)
+![Databricks](https://img.shields.io/badge/Platform-Databricks-red)
+![Status](https://img.shields.io/badge/Progress-In%20Progress-brightgreen)
 
 ---
 
-## ✅ Day 1 Progress
-Completed SQL practice questions from Q1 to Q15.
+# 📌 About
 
-### 🧠 Topics Covered in Day 1
-- SELECT Queries
-- WHERE Clause
-- LIKE Operator
-- BETWEEN Operator
-- IN Operator
-- Date Functions
-- Basic Filtering
+This repository showcases my hands-on **Data Engineering learning journey** through structured weekly practice and additional phase-based projects using **SQL, PySpark, Spark SQL, and Databricks**.
 
----
+It includes:
 
-## ✅ Day 2 Progress
-Completed SQL practice questions from Q16 to Q65.
+- 📚 Weekly Practice Assignments
+- ⚡ SQL to PySpark Learning Path
+- 🏗️ ETL Pipelines
+- 📊 Business Analytics Projects
+- 📈 Customer Segmentation
+- 💼 Real-world Business Scenarios
+- 🎯 Interview-Oriented Exercises
 
-### 🧠 Topics Covered in Day 2
-- Aggregate Functions
-- GROUP BY
-- HAVING
-- ORDER BY
-- JOIN Queries
-- Nested Queries
-- Correlated Queries
-- Advanced SQL Filtering
+The goal of this repository is to strengthen core Data Engineering concepts through practical implementation and real-world use cases.
 
 ---
 
-## ✅ Day 3 Progress
-Completed SQL Window Functions Assignment (Q1 to Q10).
-
-### 🧠 Topics Covered in Day 3
-- ROW_NUMBER()
-- RANK()
-- DENSE_RANK()
-- PARTITION BY
-- Running Totals
-- Cumulative Sum
-- LAG()
-- LEAD()
-- Window Functions
-
----
-
-## ✅ Day 4 Progress
-Completed SQL Analytical Functions Assignment (Q11 to Q20).
-
-### 🧠 Topics Covered in Day 4
-- Moving Average
-- NTILE()
-- Department Average Salary
-- Payroll Calculation
-- Salary Percentage Contribution
-- COUNT() OVER()
-- Advanced Window Functions
-
----
-
-## ✅ Day 5 Progress
-Completed SQL CTE and Recursive Queries Assignment (Q21 to Q30).
-
-### 🧠 Topics Covered in Day 5
-- Common Table Expressions (CTEs)
-- Multiple CTEs
-- Recursive CTEs
-- Employee Hierarchy
-- Recursive Queries
-- CTE with Window Functions
-- Department Rankings
-- Sales Analysis
-
----
-
-## ✅ Day 6 Progress
-Completed Advanced SQL Queries Assignment (Q1 to Q50). :contentReference[oaicite:0]{index=0}
-
-### 🧠 Topics Covered in Day 6
-- Advanced JOIN Queries
-- LEFT JOIN
-- Aggregate Functions
-- GROUP BY and HAVING
-- Subqueries
-- Window Functions
-- ROW_NUMBER()
-- RANK()
-- DENSE_RANK()
-- LAG() and LEAD()
-- Running Totals
-- NTILE()
-- Common Table Expressions (CTEs)
-- Recursive Queries
-- Ranking and Analytics
-- Department-wise Analysis
-- Student Performance Reports
-
----
-
-## 🛠 Platform Used
-DB-Fiddle (MySQL 5.7)
-
----
-
-## 📂 Folder Structure
+# 📂 Repository Structure
 
 ```text
-Week-1/
-├── day-1/
-│   ├── queries.sql
-│   └── README.md
+Databricks-Training/
 │
-├── day-2/
-│   ├── queries.sql
-│   └── README.md
+├── Week1/
+├── Week2/
+├── Week3/
+├── Week4/
 │
-├── day-3/
-│   ├── window_functions.sql
-│   └── README.md
+├── Phase-1/
+├── Phase-2/
+├── Phase-3/
+├── Phase-4/
+├── Phase-4A/
 │
-├── day-4/
-│   ├── analytical_functions.sql
-│   └── README.md
-│
-├── day-5/
-│   ├── cte_queries.sql
-│   └── README.md
-│
-└── day-6/
-    ├── advanced_sql_queries.sql
-    └── README.md
+└── README.md
+```
 
+---
 
+# 📚 Weekly Learning Modules
 
-Week 2
+## 📘 Week 1 — SQL Fundamentals
 
-  => Mastered String Functions (UPPER, LOWER, CONCAT, SUBSTRING, REPLACE, TRIM, INSTR, REVERSE)
-  => Learnt Date Manipulation (CURRENT_DATE, YEAR, MONTH, DAY, DATE_ADD, DATE_SUB, DATEDIFF, DATE_FORMAT)
-  => Practiced Number Manipulation (ROUND, CEIL, FLOOR, ABS, MOD, POWER, SQRT, LOG, SIGN, GREATEST, LEAST)
-  => Completed StrDataNum Assignment - Combined String, Date, and Number Functions
-  => Mastered Null Functions (COALESCE, IFNULL, NULLIF, IS NULL, CASE WHEN)
-  => Learnt REGEX Patterns and Completed Data Validation Assignment
+- SQL Basics
+- SELECT & Filtering
+- Operators
+- Sorting
+- Aggregate Functions
+- GROUP BY & HAVING
+- SQL Practice Exercises
+
+---
+
+## 📘 Week 2 — Advanced SQL
+
+- Joins
+- Subqueries
+- Views
+- Constraints
+- Set Operators
+- String & Date Functions
+- Analytical Queries
+- Business Scenarios
+
+---
+
+## 📘 Week 3 — SQL NULL Handling & PySpark Fundamentals
+
+- NULL Functions
+- COALESCE() & NULLIF()
+- Spark Session
+- CSV Data Loading
+- DataFrame Creation
+- Filtering & Sorting
+- DataFrame Transformations
+- Type Casting
+
+---
+
+## 📘 Week 4 — Advanced PySpark Transformations
+
+- Advanced DataFrame Transformations
+- Cross Join, Intersect & Except
+- Cube & Rollup
+- Broadcast Join
+- explode_outer() & Arrays
+- Employee Salary Analytics
+- HR Dashboard
+- Data Engineering Mini Projects
+
+---
+
+---
+
+# 🚀 Additional SQL to PySpark Learning Path
+
+Along with the weekly training modules, I completed a structured SQL-to-PySpark learning path focused on building ETL pipelines and solving real-world business problems.
+
+---
+
+## 📘 Phase 1 — SQL to PySpark Foundations
+
+- SQL to PySpark Basics
+- DataFrame Creation
+- Data Selection
+- Filtering & Sorting
+- Basic Aggregations
+- SQL vs PySpark Syntax Mapping
+
+---
+
+## 📘 Phase 2 — SQL to PySpark Bridge
+
+- Customer & Sales Data Analysis
+- Data Cleaning
+- Aggregations
+- Joins
+- Customer Spend Analysis
+- Revenue Analysis
+- SQL to PySpark Conversion
+
+---
+
+## 📘 Phase 3 — Final ETL & Pipeline
+
+- ETL (Extract, Transform, Load)
+- Reading CSV, JSON & Parquet Files
+- Data Cleaning
+- Schema Inspection
+- Handling Missing Values
+- Filtering Invalid Records
+- Reporting Pipelines
+- Business Analytics
+
+---
+
+## 📘 Phase 4 — Business Pipeline & Analytics
+
+- End-to-End ETL Pipeline
+- Daily Sales Analysis
+- City-wise Revenue
+- Top Customers
+- Repeat Customers
+- Customer Segmentation
+- Final Reporting Table
+- Exporting Reports
+
+---
+
+## 📘 Phase 4A — Bucketing & Segmentation
+
+- Customer Bucketing
+- Gold, Silver & Bronze Segmentation
+- SQL CASE Statements
+- PySpark Conditional Logic
+- Bucketizer (MLlib)
+- Quantile-Based Segmentation
+- Window-Based Ranking
+- Segment Analysis
+
+---
+
+# 💼 Skills Snapshot
+
+## 🗄️ SQL
+
+- SQL Queries
+- Joins
+- Subqueries
+- Aggregate Functions
+- NULL Handling
+- Views
+- Constraints
+- CASE Statements
+- Window Functions
+
+---
+
+## ⚡ PySpark
+
+- SparkSession
+- DataFrame API
+- Data Transformations
+- Filtering
+- Aggregations
+- Joins
+- Window Functions
+- Pivot & Unpivot
+- Arrays & Maps
+- RDD Operations
+- Customer Segmentation
+- Bucketing
+- Quantile Analysis
+- MLlib Bucketizer
+- Reporting Pipelines
+
+---
+
+## 📊 Data Engineering
+
+- ETL Concepts
+- Data Ingestion
+- Data Cleaning
+- Data Validation
+- Data Transformation
+- Business Analytics
+- Customer Analytics
+- Reporting Pipelines
+- Distributed Data Processing
+
+---
+
+# 🛠️ Tools & Technologies
+
+- 🐍 Python
+- ⚡ PySpark
+- 🔥 Apache Spark
+- 🗄️ SQL
+- 💻 Databricks
+- 🌿 Git
+- 📂 GitHub
+- 💻 VS Code
+
+---
+
+# 📈 Repository Highlights
+
+✔ SQL Fundamentals
+
+✔ Advanced SQL Queries
+
+✔ SQL to PySpark Conversion
+
+✔ DataFrame Transformations
+
+✔ Window Functions
+
+✔ ETL Pipeline Development
+
+✔ Business Analytics
+
+✔ Customer Segmentation
+
+✔ Bucketing Techniques
+
+✔ Reporting Pipelines
+
+✔ Real-world Data Engineering Scenarios
+
+---
+
+# 🎯 Learning Outcomes
+
+Through this repository, I have gained practical experience in:
+
+- Designing end-to-end ETL workflows
+- Translating SQL queries into PySpark DataFrame transformations
+- Cleaning and validating structured datasets
+- Building business reporting pipelines
+- Performing advanced aggregations and joins
+- Applying customer segmentation and bucketing techniques
+- Using Spark SQL and PySpark for scalable data processing
+- Solving real-world Data Engineering problems
+
+---
+
+# 📊 Repository Progress
+
+| Module | Status |
+|---------|:------:|
+| ✅ Week 1 | Completed |
+| ✅ Week 2 | Completed |
+| ✅ Week 3 | Completed |
+| ✅ Week 4 | Completed |
+| ✅ Phase 1 | Completed |
+| ✅ Phase 2 | Completed |
+| ✅ Phase 3 | Completed |
+| ✅ Phase 4 | Completed |
+| ✅ Phase 4A | Completed |
+
+---
+
+# 👩‍💻 Author
+
+## **Thokala Charan**
+
+💡 *Passionate about Data Engineering and continuously building practical projects using SQL, PySpark, Apache Spark, and Databricks.*
+
+⭐ **If you found this repository helpful, consider giving it a star!**
